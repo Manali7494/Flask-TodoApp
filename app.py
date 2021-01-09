@@ -1,5 +1,5 @@
 # Import of flask
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 # Initialization
@@ -32,15 +32,23 @@ def index():
     # render
     return render_template('base.html', todo_list=todo_list) # render template
 
+@app.route('/add', methods=['POST'])
+def add():
+
+    # Get input fields from the form
+    title = request.form.get("title")
+    
+    # Add to db
+    new_todo = Todo(title = title, complete=False)
+    db.session.add(new_todo)
+    db.session.commit()
+
+    return redirect(url_for("index"))
+
 # Using 'python app.py'
 if __name__ == "__main__":
     #Creating database
     db.create_all()
-
-    #app new to do in database
-    # new_todo = Todo(title = "todo 1", complete=False)
-    # db.session.add(new_todo)
-    # db.session.commit()
 
     # Running app in development
     app.run(debug=True)
