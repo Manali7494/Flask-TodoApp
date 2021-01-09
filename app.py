@@ -28,9 +28,9 @@ def index():
     todo_list = Todo.query.all()
 
     print(todo_list)
-    
+
     # render
-    return render_template('base.html') # render template
+    return render_template('base.html', todo_list=todo_list) # render template
 
 # Using 'python app.py'
 if __name__ == "__main__":
@@ -38,9 +38,9 @@ if __name__ == "__main__":
     db.create_all()
 
     #app new to do in database
-    new_todo = Todo(title = "todo 1", complete=False)
-    db.session.add(new_todo)
-    db.session.commit()
+    # new_todo = Todo(title = "todo 1", complete=False)
+    # db.session.add(new_todo)
+    # db.session.commit()
 
     # Running app in development
     app.run(debug=True)
