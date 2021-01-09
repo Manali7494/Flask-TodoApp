@@ -1,5 +1,5 @@
 # Import of flask
-from flask import Flask
+from flask import Flask, render_template
 
 # Initialization
 app = Flask(__name__) 
@@ -9,15 +9,7 @@ app = Flask(__name__)
 
 # Index function
 def index():
-    return "Hello World"
-
-
-#About Page
-
-@app.route('/about')
-
-def about():
-    return "About Page"
+    return render_template('base.html') # render template
 
 # Using 'python app.py' - Alternate way of running the app using 
 if __name__ == "__main__":
