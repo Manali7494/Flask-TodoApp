@@ -8,6 +8,10 @@ Simple Todo app created through flask. It allows users to add new to do items, d
 * Jinja2
 * SQLAlchemy
 
-## Images
+### Setup 
+* Install and run virtual env:  `. venv/bin/activate`
+* Use requirements file to install `pip install requirements.txt`
+* Run the app `python3 app.py` or `python app.py`
 
-![Todo App](/AppScreenshot.png")
+## Images
+![Todo App](AppScreenshot.png)
