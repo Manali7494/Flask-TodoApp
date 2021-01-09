@@ -10,3 +10,7 @@ app = Flask(__name__)
 # Index function
 def index():
     return "Hello World"
+
+# Using 'python app.py' - Alternate way of running the app using 
+if __name__ == "__main__":
+    app.run(debug=True)
